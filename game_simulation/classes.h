@@ -1,4 +1,5 @@
 #pragma once
+#include <map>
 #include <string>
 #include <vector>
 
@@ -48,4 +49,11 @@ public:
 	hero get_hero_by_id(int id);
 	void delete_hero(hero h);
 	void show_hero_info();
+};
+
+class team
+{
+	std::string name;
+	std::map<player, hero> team_;
+public:
 };
