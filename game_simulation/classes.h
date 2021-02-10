@@ -21,6 +21,9 @@ class hero
 public:
 	hero() = default;
 	hero(int id, int hp, int damage, std::string name_);
+	std::string get_name();
+	int get_id();
+	void show_hero();
 };
 
 class player_mng
@@ -35,4 +38,14 @@ public:
 	void show_player_info();
 };
 
-
+class hero_mng
+{
+	std::vector<hero> heroes_;
+public:
+	hero_mng() = default;
+	void create_hero(int id, int hp, int damage, std::string name_);
+	hero get_hero_by_name(std::string name);
+	hero get_hero_by_id(int id);
+	void delete_hero(hero h);
+	void show_hero_info();
+};
