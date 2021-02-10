@@ -3,6 +3,8 @@
 
 int main()
 {
-    std::cout << rand_name(8) << std::endl;
+	srand(time(nullptr));
+	player_mng pl;
+	create_players(20, pl);
 }
 
