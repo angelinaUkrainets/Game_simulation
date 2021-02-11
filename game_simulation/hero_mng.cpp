@@ -8,6 +8,11 @@ void hero_mng::create_hero(int id, int hp, int damage, std::string name_)
 	heroes_.push_back(h);
 }
 
+std::vector<hero> hero_mng::get_heroes()
+{
+	return this->heroes_;
+}
+
 hero hero_mng::get_hero_by_name(std::string name)
 {
 	for(auto el : heroes_)
@@ -50,4 +55,16 @@ void hero_mng::show_hero_info()
 	{
 		el.show_hero();
 	}
+}
+
+bool hero_mng::is_hero(std::string name)
+{
+	for (auto el : heroes_)
+	{
+		if (el.get_name().compare(name) == 0)
+		{
+			return true;
+		}
+	}
+	return false;
 }

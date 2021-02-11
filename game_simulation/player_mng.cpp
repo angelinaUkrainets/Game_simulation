@@ -8,6 +8,11 @@ void player_mng::create_player(int id, std::string name_)
 	players_.push_back(pl);
 }
 
+std::vector<player> player_mng::get_players()
+{
+	return this->players_;
+}
+
 player player_mng::get_player_by_name(std::string name)
 {
 	for(auto el:players_)

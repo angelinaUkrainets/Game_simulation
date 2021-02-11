@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <iostream>
 
 #include "classes.h"
@@ -21,5 +22,5 @@ int player::get_id()
 
 void player::show_player()
 {
-	std::cout << id << " " << name_ << "\t" << rank << std::endl;
+	std::cout << std::setw(4) << id << std::setw(25) << name_ << std::setw(5) << rank;
 }

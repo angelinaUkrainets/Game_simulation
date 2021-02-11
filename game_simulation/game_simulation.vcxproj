@@ -144,6 +144,7 @@
     <ClCompile Include="hero_mng.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="player_mng.cpp" />
+    <ClCompile Include="team.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="classes.h" />

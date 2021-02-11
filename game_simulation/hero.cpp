@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <iostream>
 
 #include "classes.h"
@@ -22,5 +23,5 @@ int hero::get_id()
 
 void hero::show_hero()
 {
-	std::cout << id << " " << name_ << "\t" << hp << "  " << damage << std::endl;
+	std::cout << std::setw(10) << id << std::setw(25) << name_ << std::setw(5) << hp << std::setw(8) << damage;
 }
