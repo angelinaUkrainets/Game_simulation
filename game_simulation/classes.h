@@ -13,6 +13,7 @@ public:
 	player(int id, std::string name);
 	std::string get_name();
 	int get_id();
+	void set_rank(int rank);
 	void show_player();
 };
 
@@ -25,6 +26,8 @@ public:
 	hero(int id, int hp, int damage, std::string name_);
 	std::string get_name();
 	int get_id();
+	int get_hp();
+	int get_damage();
 	void show_hero();
 };
 
@@ -75,7 +78,30 @@ class team : public i_team_mng
 public:
 	team() = default;
 	team(std::string name);
+	std::vector<memb>* get_team();
+	std::string get_name();
+	void set_team(std::vector<memb> team);
+	void set_name(std::string name);
 	void fill_team(player pl, hero hr);
+	int calculate_points();
+	void add_rank(int num);
 	void generate_new_team(player_mng player, hero_mng hero) override;
 	void get_team_info() override;
+	void generate_two_teams(player_mng player, hero_mng hero, team& t2);
+};
+
+class session
+{
+	team t1, t2;
+public:
+	session() = default;
+	session(team &t1, team &t2);
+	int calculate_winner();
+};
+
+class game_mng
+{
+	std::vector<session> sessions_;
+public:
+	void perform_game_session(std::string name1, std::string name2, player_mng pl, hero_mng hr);
 };

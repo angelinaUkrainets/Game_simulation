@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <iostream>
 
 #include "classes.h"
@@ -48,8 +49,12 @@ void player_mng::delete_player(player pl)
 
 void player_mng::show_player_info()
 {
+	std::cout << std::setw(4) << "ID" << std::setw(25) << "NAME PLAYER" << std::setw(5) << "RANK" << std::endl;
+	
 	for(auto el:players_)
 	{
 		el.show_player();
+		std::cout << std::endl;
+		std::cout << " ---------------------------------------" << std::endl;
 	}
 }

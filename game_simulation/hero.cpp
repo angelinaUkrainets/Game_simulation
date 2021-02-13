@@ -21,6 +21,16 @@ int hero::get_id()
 	return this->id;
 }
 
+int hero::get_hp()
+{
+	return this->hp;
+}
+
+int hero::get_damage()
+{
+	return this->damage;
+}
+
 void hero::show_hero()
 {
 	std::cout << std::setw(10) << id << std::setw(25) << name_ << std::setw(5) << hp << std::setw(8) << damage;

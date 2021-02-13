@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <iostream>
 
 #include "classes.h"
@@ -51,9 +52,13 @@ void hero_mng::delete_hero(hero h)
 
 void hero_mng::show_hero_info()
 {
+	std::cout << std::setw(10) << "ID HERO" << std::setw(25) << "NAME HERO" << std::setw(5) << "HP" <<
+		std::setw(8) << "DAMAGE" << std::endl;
 	for(auto el:heroes_)
 	{
 		el.show_hero();
+		std::cout << std::endl;
+		std::cout << " --------------------------------------------------------" << std::endl;
 	}
 }
 
