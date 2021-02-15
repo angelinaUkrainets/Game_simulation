@@ -8,9 +8,9 @@ team::team(std::string name)
 	this->name = name;
 }
 
-std::vector<memb>* team::get_team()
+std::vector<memb>& team::get_team()
 {
-	return &this->team_;
+	return this->team_;
 }
 
 std::string team::get_name()
@@ -29,7 +29,7 @@ void team::set_name(std::string name)
 	this->name = name;
 }
 
-void team::fill_team(player pl, hero hr)
+void team::fill_team(player& pl, hero& hr)
 {
 	team_.push_back(memb{ pl, hr });
 }
@@ -86,7 +86,7 @@ void team::get_team_info()
 	}
 }
 
-void team::generate_two_teams(player_mng player, hero_mng hero, team& t2)
+void team::generate_two_teams(player_mng& player, hero_mng& hero, team& t2)
 {
 	auto pls = player.get_players();
 	auto hrs = hero.get_heroes();

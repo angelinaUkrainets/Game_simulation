@@ -9,7 +9,7 @@ void player_mng::create_player(int id, std::string name_)
 	players_.push_back(pl);
 }
 
-std::vector<player> player_mng::get_players()
+std::vector<player>& player_mng::get_players()
 {
 	return this->players_;
 }
@@ -24,7 +24,7 @@ player player_mng::get_player_by_name(std::string name)
 	std::cout << "There is no player with name " << name << std::endl;
 }
 
-player player_mng::get_player_by_id(int id)
+player& player_mng::get_player_by_id(int id)
 {
 	for(auto el:players_)
 	{
@@ -56,5 +56,19 @@ void player_mng::show_player_info()
 		el.show_player();
 		std::cout << std::endl;
 		std::cout << " ---------------------------------------" << std::endl;
+	}
+}
+
+void player_mng::add_rang_by_team(team& t, int rank)
+{
+	for(int i = 0; i<5; i++)
+	{
+		auto element = t.get_team()[i];
+		int id = element.pl.get_id();
+		for(auto& el:players_)
+		{
+			if (el.get_id() == id)
+				el.set_rank(rank);
+		}
 	}
 }

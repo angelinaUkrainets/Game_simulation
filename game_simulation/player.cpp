@@ -22,7 +22,7 @@ int player::get_id()
 
 void player::set_rank(int rank)
 {
-	this->rank = rank;
+	this->rank += rank;
 }
 
 void player::show_player()

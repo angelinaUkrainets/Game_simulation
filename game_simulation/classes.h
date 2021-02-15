@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+class team;
+
 class player
 {
 	int id, rank;
@@ -36,10 +38,11 @@ class player_mng
 	std::vector<player> players_;
 public:
 	player_mng() = default;
-	std::vector<player> get_players();
+	std::vector<player>& get_players();
+	void add_rang_by_team(team& t, int rank);
 	void create_player(int id, std::string name_);
 	player get_player_by_name(std::string name);
-	player get_player_by_id(int id);
+	player& get_player_by_id(int id);
 	void delete_player(player pl);
 	void show_player_info();
 };
@@ -78,16 +81,16 @@ class team : public i_team_mng
 public:
 	team() = default;
 	team(std::string name);
-	std::vector<memb>* get_team();
+	std::vector<memb>& get_team();
 	std::string get_name();
 	void set_team(std::vector<memb> team);
 	void set_name(std::string name);
-	void fill_team(player pl, hero hr);
+	void fill_team(player& pl, hero& hr);
 	int calculate_points();
 	void add_rank(int num);
 	void generate_new_team(player_mng player, hero_mng hero) override;
 	void get_team_info() override;
-	void generate_two_teams(player_mng player, hero_mng hero, team& t2);
+	void generate_two_teams(player_mng& player, hero_mng& hero, team& t2);
 };
 
 class session
@@ -103,5 +106,5 @@ class game_mng
 {
 	std::vector<session> sessions_;
 public:
-	void perform_game_session(std::string name1, std::string name2, player_mng pl, hero_mng hr);
+	void perform_game_session(std::string name1, std::string name2, player_mng& pl, hero_mng& hr);
 };

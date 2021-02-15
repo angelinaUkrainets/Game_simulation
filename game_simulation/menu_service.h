@@ -5,9 +5,9 @@
 #include "services.h"
 
 using namespace std;
-void menu(player_mng pl, hero_mng hr, game_mng gm);
+void menu(player_mng& pl, hero_mng& hr, game_mng& gm);
 
-void close_code(player_mng pl, hero_mng hr, game_mng gm)
+void close_code(player_mng& pl, hero_mng& hr, game_mng& gm)
 {
 	int n;
 	cout << "CONTINUE ? \t[1] - yes [2] - no" << endl;
@@ -21,7 +21,7 @@ void close_code(player_mng pl, hero_mng hr, game_mng gm)
 		return;
 }
 
-void select(int num, player_mng pl, hero_mng hr, game_mng gm)
+void select(int num, player_mng& pl, hero_mng& hr, game_mng& gm)
 {
 	switch (num)
 	{
@@ -88,11 +88,19 @@ void select(int num, player_mng pl, hero_mng hr, game_mng gm)
 			getline(cin, n2);
 
 			gm.perform_game_session(n1, n2, pl, hr);
+
+			close_code(pl, hr, gm);
+
+			break;
+		}
+	default:
+		{
+		return;
 		}
 	}
 }
 
-void menu(player_mng pl, hero_mng hr, game_mng gm)
+void menu(player_mng& pl, hero_mng& hr, game_mng& gm)
 {
 	cout << "\t\t*****\tMENU\t*****" << endl;
 	cout << "\t[1] - CREATE PLAYERS" << endl;

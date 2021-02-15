@@ -5,10 +5,10 @@
 session::session(team &t1, team &t2)
 {
 	this->t1.set_name(t1.get_name());
-	this->t1.set_team(*t1.get_team());
+	this->t1.set_team(t1.get_team());
 
 	this->t2.set_name(t2.get_name());
-	this->t2.set_team(*t2.get_team());
+	this->t2.set_team(t2.get_team());
 }
 
 int session::calculate_winner()
